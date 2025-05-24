@@ -5,8 +5,33 @@ import PromoCarousel from "./components/ui/promo-carousel";
 import FeaturedItems from "./components/ui/featured-items";
 import LocationFinder from "./components/ui/location-finder";
 import { ArrowRight, MapPin, Gift, Utensils } from "lucide-react";
+import review1 from "./assets/fgirl.jpeg"
+import review2 from "./assets/johnd.jpeg"
+import review3 from "./assets/emi.jpeg"
+
 
 export default function Home() {
+  const reviews = [
+    {
+      name: "Sarah Johnson",
+      rating: 5,
+      comment: "The food at Restu is absolutely delicious! The service is fast and the staff is friendly. I'll definitely be coming back again and again!",
+      image: review1,
+    },
+    {
+      name: "John Doe",
+      rating: 5,
+      comment: "Amazing experience! The ambiance and food quality are top-notch.",
+      image: review2,
+    },
+    {
+      name: "Emily Smith",
+      rating: 5,
+      comment: "Best dining experience I've had in a long time. Highly recommend!",
+      image: review3,
+    },
+  ];
+
   return (
     <div className="flex flex-col gap-16 pb-16">
       <PromoCarousel />
@@ -18,9 +43,8 @@ export default function Home() {
               Welcome to Restu
             </h2>
             <p className="mx-auto text-muted-foreground md:text-xl">
-              Delicious food, fast service, and a welcoming atmosphere.
-              Experience the best dining at Restu, where every meal is crafted
-              with care.
+              Delicious food, fast service, and a welcoming atmosphere. Experience
+              the best dining at Restu, where every meal is crafted with care.
             </p>
           </div>
           <div className="flex flex-col gap-3 min-[400px]:flex-row">
@@ -79,14 +103,13 @@ export default function Home() {
                     src={item.image || "/placeholder.svg"}
                     alt={item.title}
                     className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20 p-6 flex flex-col justify-end">
                     <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-primary">
                       <item.icon className="h-5 w-5" />
                     </div>
-                    <h3 className="text-xl font-bold text-white">
-                      {item.title}
-                    </h3>
+                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
                     <p className="text-white/80 mb-4">{item.description}</p>
                     <Link to={item.link}>
                       <Button
@@ -144,7 +167,7 @@ export default function Home() {
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {[1, 2, 3].map((i) => (
+            {reviews.map((review, i) => (
               <Card key={i} className="text-left overflow-hidden">
                 <CardContent className="p-6 relative">
                   <div className="absolute top-0 right-0 w-20 h-20 text-primary/5 -mt-6 -mr-6">
@@ -161,15 +184,16 @@ export default function Home() {
                   <div className="flex items-start gap-4 mb-4">
                     <div className="relative h-12 w-12 rounded-full overflow-hidden bg-primary/10">
                       <img
-                        src={`/placeholder.svg?height=48&width=48&text=C${i}`}
-                        alt={`Customer ${i}`}
-                        className="object-cover"
+                        src={review.image || "/placeholder.svg?height=48&width=48"}
+                        alt={`${review.name}'s profile picture`}
+                        className="object-cover h-full w-full"
+                        loading="lazy"
                       />
                     </div>
                     <div>
-                      <h4 className="font-medium">Sarah Johnson</h4>
+                      <h4 className="font-medium">{review.name}</h4>
                       <div className="flex text-yellow-500">
-                        {Array(5)
+                        {Array(review.rating)
                           .fill(0)
                           .map((_, j) => (
                             <svg
@@ -189,11 +213,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <p className="text-muted-foreground">
-                    "The food at Restu is absolutely delicious! The service is
-                    fast and the staff is friendly. I'll definitely be coming
-                    back again and again!"
-                  </p>
+                  <p className="text-muted-foreground">{review.comment}</p>
                 </CardContent>
               </Card>
             ))}

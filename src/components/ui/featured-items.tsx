@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 import { Button } from "./button";
 import { Card, CardContent } from "./card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
+import ClassicBurger from "../../assets/burger.webp" ;
+import CrispyChickenBurger from "../../assets/crispychickensandwich.jpg"
+import LoadedFries from "../../assets/loadedfries.png"
+import ChocoMilkShake from "../../assets/chocomilkshake.png"
+
 
 const categories = [
   { id: "popular", name: "Popular" },
@@ -21,28 +26,28 @@ const menuItems = {
       name: "Classic Burger",
       description: "Beef patty with lettuce, tomato, and our special sauce",
       price: 8.99,
-      image: "/placeholder.svg?height=200&width=200&text=Classic+Burger",
+      image: ClassicBurger,
     },
     {
       id: 2,
       name: "Crispy Chicken Sandwich",
       description: "Crispy chicken with lettuce and mayo",
       price: 7.99,
-      image: "/placeholder.svg?height=200&width=200&text=Chicken+Sandwich",
+      image: CrispyChickenBurger,
     },
     {
       id: 3,
       name: "Loaded Fries",
       description: "Fries topped with cheese, bacon, and sour cream",
       price: 5.99,
-      image: "/placeholder.svg?height=200&width=200&text=Loaded+Fries",
+      image: LoadedFries,
     },
     {
       id: 4,
       name: "Chocolate Shake",
       description: "Rich and creamy chocolate milkshake",
       price: 4.99,
-      image: "/placeholder.svg?height=200&width=200&text=Chocolate+Shake",
+      image: ChocoMilkShake,
     },
   ],
   burgers: [

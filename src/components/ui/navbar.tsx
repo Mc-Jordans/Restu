@@ -5,6 +5,7 @@ import { ThemeToggle } from "./theme-toggle";
 import { Sheet, SheetContent, SheetTrigger } from "./sheet";
 import { cn } from "../../lib/utils";
 import { useCart } from "../../context/CartContext";
+import Logo from "../../assets/Restulogo.png";
 
 const routes = [
   { name: "Home", path: "/" },
@@ -36,16 +37,14 @@ export default function Navbar() {
             <SheetContent side="left" className="w-[240px] sm:w-[300px]">
               <div className="flex flex-col gap-6 py-4">
                 <Link to="/" className="flex items-center gap-2">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
+                  <div className="flex relative items-center justify-center">
                     <img
-                      src="/placeholder.svg?height=32&width=32"
-                      width={24}
-                      height={24}
+                      src={Logo}
+                      width={112}
                       alt="Restu Logo"
                       className="rounded-full"
                     />
                   </div>
-                  <span className="text-xl font-bold">Restu</span>
                 </Link>
                 <nav className="flex flex-col gap-4">
                   {routes.map((route) => (
@@ -67,18 +66,15 @@ export default function Navbar() {
             </SheetContent>
           </Sheet>
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
+            <div className="flex relative items-center justify-center bottom-2 left-22">
               <img
-                src="/placeholder.svg?height=32&width=32"
-                width={24}
-                height={24}
+                src={Logo}
+                width={112}
                 alt="Restu Logo"
-                className="rounded-full"
+                className="relative bottom-2.3"
               />
             </div>
-            <span className="text-xl font-bold hidden md:inline-block">
-              Restu
-            </span>
+            
           </Link>
         </div>
         <nav className="hidden md:flex items-center gap-6">
