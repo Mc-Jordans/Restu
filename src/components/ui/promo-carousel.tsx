@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./button";
+import Caro1 from "../../assets/burgerHuge.jpeg";
+import Caro2 from "../../assets/ee 1.png"
+import Caro3 from "../../assets/miw.png"
 
 const promos = [
   {
@@ -11,7 +14,7 @@ const promos = [
     title: "Try Our New Signature Burger",
     description:
       "Juicy beef patty with our special sauce and fresh ingredients",
-    image: "/placeholder.svg?height=500&width=1200&text=Signature+Burger",
+    image: Caro1,
     link: "/menu/burgers",
     buttonText: "Order Now",
   },
@@ -20,7 +23,7 @@ const promos = [
     title: "Family Meal Deal",
     description:
       "Feed the whole family with our special meal deal, includes 4 entrees and 2 sides",
-    image: "/placeholder.svg?height=500&width=1200&text=Family+Meal",
+    image: Caro2,
     link: "/menu/deals",
     buttonText: "See Deal",
   },
@@ -28,7 +31,7 @@ const promos = [
     id: 3,
     title: "Download Our App",
     description: "Order ahead, earn rewards, and get exclusive offers",
-    image: "/placeholder.svg?height=500&width=1200&text=Mobile+App",
+    image: Caro3,
     link: "/app",
     buttonText: "Learn More",
   },
@@ -46,7 +49,7 @@ export default function PromoCarousel() {
   }, [current]);
 
   return (
-    <div className="relative w-full overflow-hidden rounded-xl">
+    <div className="relative w-full overflow-hidden ">
       <div className="relative h-[350px] md:h-[450px] lg:h-[550px] w-full">
         {promos.map((promo, index) => (
           <div
@@ -60,7 +63,7 @@ export default function PromoCarousel() {
             <img
               src={promo.image || "/placeholder.svg"}
               alt={promo.title}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover "
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent flex flex-col justify-center px-6 md:px-12 lg:px-20">
               <div className="max-w-md text-white">

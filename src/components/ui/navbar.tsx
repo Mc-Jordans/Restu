@@ -117,7 +117,7 @@ export default function Navbar() {
             </Button>
           </Link>
           <Link to="/order">
-            <Button className="hidden md:flex bg-primary font-medium text-sm rounded-full">
+            <Button className="hidden md:flex bg-primary font-semibold text-sm dark:text-white rounded-full cursor-pointer">
               Order Now
             </Button>
           </Link>

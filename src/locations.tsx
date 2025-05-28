@@ -6,6 +6,7 @@ import { Input } from "./components/ui/input";
 import { Card, CardContent } from "./components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { MapPin, Navigation, Phone, Clock, Search } from "lucide-react";
+import Location1 from "./assets/loc1.jpg"
 
 const locations = [
   {
@@ -18,7 +19,7 @@ const locations = [
     phone: "(555) 123-4567",
     hours: "Mon-Sun: 10:00 AM - 10:00 PM",
     features: ["Dine-in", "Takeout", "Delivery", "Drive-thru"],
-    image: "/placeholder.svg?height=200&width=300&text=Downtown",
+    image: Location1,
   },
   {
     id: 2,
@@ -30,7 +31,7 @@ const locations = [
     phone: "(555) 234-5678",
     hours: "Mon-Sun: 10:00 AM - 11:00 PM",
     features: ["Dine-in", "Takeout", "Delivery"],
-    image: "/placeholder.svg?height=200&width=300&text=Westside",
+    image: Location1,
   },
   {
     id: 3,
@@ -128,60 +129,59 @@ export default function LocationsPage() {
           <TabsTrigger value="map">Map View</TabsTrigger>
         </TabsList>
         <TabsContent value="list" className="mt-6">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filteredLocations.map((location) => (
-              <Card key={location.id} className="overflow-hidden">
-                <div className="relative h-40 w-full">
-                  <img
-                    src={location.image || "/placeholder.svg"}
-                    alt={location.name}
-                    className="object-cover"
-                  />
-                </div>
-                <CardContent className="p-4">
-                  <h3 className="font-bold">{location.name}</h3>
-                  <div className="mt-2 space-y-2 text-sm">
-                    <div className="flex items-start gap-2">
-                      <MapPin className="h-4 w-4 mt-0.5 text-muted-foreground" />
-                      <div>
-                        <div>{location.address}</div>
-                        <div>
-                          {location.city}, {location.state} {location.zip}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Phone className="h-4 w-4 mt-0.5 text-muted-foreground" />
-                      <span>{location.phone}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Clock className="h-4 w-4 mt-0.5 text-muted-foreground" />
-                      <span>{location.hours}</span>
-                    </div>
-                  </div>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {location.features.map((feature, index) => (
-                      <span
-                        key={index}
-                        className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-4 flex gap-2">
-                    <Button variant="outline" size="sm" className="flex-1">
-                      <Navigation className="mr-2 h-4 w-4" />
-                      Directions
-                    </Button>
-                    <Button size="sm" className="flex-1">
-                      Order
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+  {filteredLocations.map((location) => (
+    <Card
+      key={location.id}
+      className="overflow-hidden bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${location.image || "/placeholder.svg"})`,
+      }}
+    >
+      <CardContent className="p-4 bg-black/50 text-white flex flex-col h-full justify-end">
+        <h3 className="font-bold">{location.name}</h3>
+        <div className="mt-2 space-y-2 text-sm">
+          <div className="flex items-start gap-2">
+            <MapPin className="h-4 w-4 mt-0.5 text-white/80" />
+            <div>
+              <div>{location.address}</div>
+              <div>
+                {location.city}, {location.state} {location.zip}
+              </div>
+            </div>
           </div>
+          <div className="flex items-start gap-2">
+            <Phone className="h-4 w-4 mt-0.5 text-white/80" />
+            <span>{location.phone}</span>
+          </div>
+          <div className="flex items-start gap-2">
+            <Clock className="h-4 w-4 mt-0.5 text-white/80" />
+            <span>{location.hours}</span>
+          </div>
+        </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {location.features.map((feature, index) => (
+            <span
+              key={index}
+              className="inline-flex items-center rounded-full border border-white/50 px-2.5 py-0.5 text-xs font-semibold"
+            >
+              {feature}
+            </span>
+          ))}
+        </div>
+        <div className="mt-4 flex gap-2">
+          <Button variant="outline" size="sm" className="flex-1 bg-white/20 text-white border-white/50">
+            <Navigation className="mr-2 h-4 w-4" />
+            Directions
+          </Button>
+          <Button size="sm" className="flex-1 bg-white/30 text-white">
+            Order
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  ))}
+</div>
         </TabsContent>
         <TabsContent value="map" className="mt-6">
           <div className="relative h-[500px] w-full rounded-lg border overflow-hidden">

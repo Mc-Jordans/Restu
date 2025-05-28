@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import Logo from "../../assets/Restulogo.png";
 
 export default function Footer() {
   return (
@@ -9,12 +10,9 @@ export default function Footer() {
           <div className="flex flex-col gap-2">
             <Link to="/" className="flex items-center gap-2">
               <img
-                src="/placeholder.svg?height=32&width=32"
-                width={32}
-                height={32}
+                src={Logo}
                 alt="Restu Logo"
               ></img>
-              <span className="text-xl font-bold">Restu</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Delicious food, fast service. Restu is your go-to restaurant for

@@ -8,6 +8,7 @@ import { ArrowRight, MapPin, Gift, Utensils } from "lucide-react";
 import review1 from "./assets/fgirl.jpeg"
 import review2 from "./assets/johnd.jpeg"
 import review3 from "./assets/emi.jpeg"
+import SpecialOffers from "./assets/brz.png"
 
 
 export default function Home() {
@@ -51,7 +52,7 @@ export default function Home() {
             <Link to="/menu">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 rounded-full px-6"
+                className="bg-primary hover:bg-primary/90 rounded-full px-6 dark:text-white"
               >
                 Explore Our Menu
               </Button>
@@ -60,7 +61,7 @@ export default function Home() {
               <Button
                 variant="outline"
                 size="lg"
-                className="rounded-full border-primary/20 text-primary hover:bg-primary/10 px-6"
+                className="rounded-full border-primary/20 text-primary hover:bg-primary/10 px-6 dark:text-white"
               >
                 Order Online
               </Button>
@@ -77,7 +78,7 @@ export default function Home() {
             {
               title: "Special Offers",
               description: "Discover our latest deals and promotions",
-              image: "/placeholder.svg?height=200&width=400",
+              image: SpecialOffers,
               link: "/menu/specials",
               icon: Gift,
             },
