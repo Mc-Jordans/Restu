@@ -25,3 +25,5 @@ function Button({
     />
   );
 }
+
+export { Button }
