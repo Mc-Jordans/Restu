@@ -20,7 +20,7 @@ export default function Navbar() {
   const { cartCount } = useCart();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md transition-all duration-300">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-2 md:gap-4">
           <Sheet>
@@ -28,7 +28,7 @@ export default function Navbar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden rounded-full"
+                className="md:hidden rounded-full hover:bg-primary/10"
               >
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
@@ -42,7 +42,7 @@ export default function Navbar() {
                       src={Logo}
                       width={112}
                       alt="Restu Logo"
-                      className="rounded-full"
+                      className="rounded-full transition-transform duration-200 hover:scale-105"
                     />
                   </div>
                 </Link>
@@ -52,10 +52,10 @@ export default function Navbar() {
                       key={route.path}
                       to={route.path}
                       className={cn(
-                        "text-lg font-medium transition-colors hover:text-primary",
+                        "text-lg font-medium transition-all duration-200 hover:translate-x-1",
                         pathname === route.path
                           ? "text-primary"
-                          : "text-muted-foreground"
+                          : "text-muted-foreground hover:text-primary"
                       )}
                     >
                       {route.name}
@@ -66,15 +66,14 @@ export default function Navbar() {
             </SheetContent>
           </Sheet>
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex relative items-center justify-center bottom-2 left-22">
+            <div className="flex relative items-center justify-center">
               <img
                 src={Logo}
                 width={112}
                 alt="Restu Logo"
-                className="relative bottom-2.3"
+                className="transition-transform duration-200 hover:scale-105"
               />
             </div>
-            
           </Link>
         </div>
         <nav className="hidden md:flex items-center gap-6">
@@ -83,19 +82,19 @@ export default function Navbar() {
               key={route.path}
               to={route.path}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary relative group",
+                "text-sm font-medium transition-all duration-200 relative group",
                 pathname === route.path
                   ? "text-primary"
-                  : "text-muted-foreground"
+                  : "text-muted-foreground hover:text-primary"
               )}
             >
               {route.name}
               <span
                 className={cn(
-                  "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ease-out",
+                  "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300",
                   pathname === route.path ? "w-full" : "w-0 group-hover:w-full"
                 )}
-              ></span>
+              />
             </Link>
           ))}
         </nav>
@@ -105,11 +104,11 @@ export default function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className="relative rounded-full"
+              className="relative rounded-full hover:bg-primary/10"
             >
               <ShoppingBag className="h-5 w-5" />
               {cartCount > 0 && (
-                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
+                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground animate-fadeIn">
                   {cartCount}
                 </span>
               )}
@@ -117,7 +116,7 @@ export default function Navbar() {
             </Button>
           </Link>
           <Link to="/order">
-            <Button className="hidden md:flex bg-primary font-semibold text-sm dark:text-white rounded-full cursor-pointer">
+            <Button className="hidden md:flex bg-primary font-semibold text-sm dark:text-white rounded-full hover:shadow-md transition-all duration-200">
               Order Now
             </Button>
           </Link>
