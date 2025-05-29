@@ -1,30 +1,28 @@
-"use client";
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./button";
 import { Card, CardContent } from "./card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
-import ClassicBurger from "../../assets/burger.webp" ;
-import CrispyChickenBurger from "../../assets/crispychickensandwich.jpg"
-import LoadedFries from "../../assets/loadedfries.png"
-import ChocoMilkShake from "../../assets/chocomilkshake.png"
-import DoubleChesseBurger from "../../assets/DCburger.png"
-import BaconBurger from "../../assets/amen.png"
-import VeggieBurger from "../../assets/vbb.png"
-import SpicyBurger from "../../assets/live.png"
-import ChickenTenders from "../../assets/chy.png"
-import SpicyChickenSandwich from "../../assets/sss.png"
-import GrilledChickenSandwich from "../../assets/hmgc.png"
-import ChickenWrap from "../../assets/wrapC.png"
-import FrenchFries from "../../assets/frenchfries.png"
-import CrispyOnion from "../../assets/crispyonion1.png"
-import Coleslaw from "../../assets/coleslaw.png"
-import MashedPotatoes from "../../assets/mashP.png"
-import IceCreamSundae from "../../assets/icream.png"
-import ApplePie from "../../assets/appie.png"
-import ChocolateBrownie from "../../assets/chs.png"
-import CheeseCake from "../../assets/chesck.png"
+import ClassicBurger from "../../assets/burger.webp";
+import CrispyChickenBurger from "../../assets/crispychickensandwich.jpg";
+import LoadedFries from "../../assets/loadedfries.png";
+import ChocoMilkShake from "../../assets/chocomilkshake.png";
+import DoubleChesseBurger from "../../assets/DCburger.png";
+import BaconBurger from "../../assets/amen.png";
+import VeggieBurger from "../../assets/vbb.png";
+import SpicyBurger from "../../assets/live.png";
+import ChickenTenders from "../../assets/chy.png";
+import SpicyChickenSandwich from "../../assets/sss.png";
+import GrilledChickenSandwich from "../../assets/hmgc.png";
+import ChickenWrap from "../../assets/wrapC.png";
+import FrenchFries from "../../assets/frenchfries.png";
+import CrispyOnion from "../../assets/crispyonion1.png";
+import Coleslaw from "../../assets/coleslaw.png";
+import MashedPotatoes from "../../assets/mashP.png";
+import IceCreamSundae from "../../assets/icream.png";
+import ApplePie from "../../assets/appie.png";
+import ChocolateBrownie from "../../assets/chs.png";
+import CheeseCake from "../../assets/chesck.png";
 
 const categories = [
   { id: "popular", name: "Popular" },
@@ -191,7 +189,7 @@ export default function FeaturedItems() {
   const [, setActiveTab] = useState("popular");
 
   return (
-    <section className="container px-4 md:px-6 py-6">
+    <section className="w-full">
       <div className="flex flex-col items-center justify-center space-y-4 text-center">
         <div className="space-y-2">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
@@ -208,12 +206,12 @@ export default function FeaturedItems() {
         onValueChange={setActiveTab}
       >
         <div className="flex justify-center">
-          <TabsList className="grid w-full max-w-md grid-cols-3 md:grid-cols-5 gap-5 bg-blue-50 dark:text-white dark:bg-gray-700">
+          <TabsList className="grid w-full max-w-md grid-cols-3 md:grid-cols-5 gap-2 bg-blue-50 dark:text-white dark:bg-gray-700 p-1">
             {categories.map((category) => (
               <TabsTrigger
                 key={category.id}
                 value={category.id}
-                className="cursor-pointer border-0 rounded-sm "
+                className="cursor-pointer border-0 rounded-sm"
               >
                 {category.name}
               </TabsTrigger>
@@ -222,11 +220,11 @@ export default function FeaturedItems() {
         </div>
         {categories.map((category) => (
           <TabsContent key={category.id} value={category.id} className="mt-10">
-            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto max-w-6xl">
+            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {menuItems[category.id as keyof typeof menuItems].map((item) => (
                 <Card
                   key={item.id}
-                  className="overflow-hidden border rounded-lg shadow-sm"
+                  className="overflow-hidden border rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg"
                 >
                   <div className="relative h-48 w-full dark:bg-white flex items-center justify-center">
                     <img
@@ -247,7 +245,7 @@ export default function FeaturedItems() {
                         {item.description}
                       </p>
                     </div>
-                    <Button className="mt-4 w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 rounded-md">
+                    <Button className="mt-4 w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 rounded-md transition-all duration-200 hover:shadow-md">
                       Add to Cart
                     </Button>
                   </CardContent>
@@ -258,7 +256,7 @@ export default function FeaturedItems() {
               <Link to={`/menu/${category.id}`}>
                 <Button
                   variant="outline"
-                  className="border-gray-300 text-gray-700 dark:text-white hover:bg-gray-100 py-2 px-4 rounded-md"
+                  className="border-gray-300 text-gray-700 dark:text-white hover:bg-gray-100 py-2 px-4 rounded-md transition-all duration-200"
                 >
                   View All {category.name}
                 </Button>

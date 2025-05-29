@@ -10,7 +10,6 @@ import review2 from "./assets/johnd.jpeg"
 import review3 from "./assets/emi.jpeg"
 import SpecialOffers from "./assets/brz.png"
 
-
 export default function Home() {
   const reviews = [
     {
@@ -37,7 +36,7 @@ export default function Home() {
     <div className="flex flex-col gap-16 pb-16">
       <PromoCarousel />
 
-      <section className="container px-4 md:px-10">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div className="flex flex-col items-center justify-center space-y-6 text-center">
           <div className="space-y-3 max-w-3xl">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -68,11 +67,13 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </div>
 
-      <FeaturedItems />
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+        <FeaturedItems />
+      </div>
 
-      <section className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div className="grid gap-8 md:grid-cols-3">
           {[
             {
@@ -127,10 +128,10 @@ export default function Home() {
             </Card>
           ))}
         </div>
-      </section>
+      </div>
 
-      <section className="bg-muted/30 py-16">
-        <div className="container px-4 md:px-6">
+      <section className="bg-muted/30 py-16 w-full">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           <div className="flex flex-col items-center justify-center space-y-6 text-center mb-10">
             <div className="space-y-3 max-w-3xl">
               <div className="flex justify-center mb-2">
@@ -156,7 +157,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div className="flex flex-col items-center justify-center space-y-6 text-center mb-10">
           <div className="space-y-3 max-w-3xl">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
@@ -225,7 +226,7 @@ export default function Home() {
             </Button>
           </Link>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
